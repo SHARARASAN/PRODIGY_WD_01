@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Interactive Navigation Menu</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <!-- Navigation Menu -->
+    <nav class="navbar">
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#services">Services</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Content sections to scroll to -->
+    <section id="home"><h2>Home Section</h2></section>
+    <section id="about"><h2>About Section</h2></section>
+    <section id="services"><h2>Services Section</h2></section>
+    <section id="contact"><h2>Contact Section</h2></section>
+
+    <script src="script.js"></script>
+</body>
+</html>
+
+/* Basic reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Body styling */
+body {
+    font-family: Arial, sans-serif;
+    line-height: 1.6;
+}
+
+/* Navigation Menu Styling */
+.navbar {
+    position: fixed;
+    top: 0;
+    width: 100%;
+    background-color: #333;
+    padding: 1rem;
+    display: flex;
+    justify-content: center;
+    transition: background-color 0.3s ease; /* Smooth transition on scroll */
+    z-index: 1000;
+}
+
+/* Menu Items */
+.navbar ul {
+    list-style: none;
+    display: flex;
+}
+
+.navbar ul li {
+    margin: 0 20px;
+}
+
+/* Menu Links */
+.navbar ul li a {
+    color: white;
+    text-decoration: none;
+    font-size: 18px;
+    transition: color 0.3s ease;
+}
+
+/* Hover effect for menu items */
+.navbar ul li a:hover {
+    color: #FFD700; /* Gold on hover */
+}
+
+/* Section Styling */
+section {
+    height: 100vh;
+    padding: 60px 20px;
+    background: #f4f4f4;
+    border-bottom: 1px solid #ddd;
+}
+
+section:nth-child(even) {
+    background: #eaeaea;
+}
+
+/* Scroll effect - change the navbar color */
+.scrolled {
+    background-color: #555; /* Darker background when scrolled */
+}
+
+// Get the navbar
+const navbar = document.querySelector('.navbar');
+
+// Add event listener for scrolling
+window.addEventListener('scroll', () => {
+    if (window.scrollY > 50) {  // If user scrolls down 50px
+        navbar.classList.add('scrolled');
+    } else {
+        navbar.classList.remove('scrolled');
+    }
+});
